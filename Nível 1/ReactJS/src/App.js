@@ -1,25 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import './App.css'
+
+import backgroundImage from './assets/background.jpeg'
 
 import Header from './components/Header'
 
 function App(){
+    
+
+    const [projects, setProjects] = useState(['Melhor jogo do ano', 'transforma sua placa em uma rtx3090'])
+
+    function handleAddProject(){
+        const newProject = prompt('Digite seu novo projeto:')
+
+        setProjects([...projects, `${newProject}`])
+
+        console.log(projects)
+    }
+
+
     return (
-    <>
-    <Header title="CyberPunk">
-        <ul>
-            <li>Melhor jogo do ano</li>
-            <li>Transforma placas de video</li>
-        </ul>    
-    </Header>
-    <Header title="2077">
-        <ul>
-            <li>Melhor jogo do ano</li>
-            <li>Transforma placas de video</li>
-        </ul> 
-    </Header>
-    </>
-    )
+        <>
+        <Header title="CyberPunk"/>
+
+        <img width={300} src={backgroundImage} />
         
+        <ul>
+            {projects.map(project => <li key={project}>{project}</li>)}
+        </ul>
+
+        <button type="button" onClick={handleAddProject}>Adicionar Projeto</button>
+        </>  
+    )
+    
 }
 
 export default App
