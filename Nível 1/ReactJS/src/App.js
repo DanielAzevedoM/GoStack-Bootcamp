@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import './App.css'
+import api from './services/api'
 
-import backgroundImage from './assets/background.jpeg'
+import './App.css'
 
 import Header from './components/Header'
 
@@ -24,8 +24,8 @@ function App(){
         <>
         <Header title="CyberPunk"/>
 
-        <img width={300} src={backgroundImage} />
         
+
         <ul>
             {projects.map(project => <li key={project}>{project}</li>)}
         </ul>
