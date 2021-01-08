@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import api from './services/api'
 
@@ -10,6 +10,12 @@ function App(){
     
 
     const [projects, setProjects] = useState(['Melhor jogo do ano', 'transforma sua placa em uma rtx3090'])
+
+    useEffect(() => {
+        api.get('projects').then(response => {
+            console.log(response)
+        })
+    }, [])
 
     function handleAddProject(){
         const newProject = prompt('Digite seu novo projeto:')
