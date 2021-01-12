@@ -9,20 +9,23 @@ import Header from './components/Header'
 function App(){
     
 
-    const [projects, setProjects] = useState(['Melhor jogo do ano', 'transforma sua placa em uma rtx3090'])
+    const [projects, setProjects] = useState([])
 
     useEffect(() => {
         api.get('projects').then(response => {
-            console.log(response)
+            setProjects(response.data)
         })
     }, [])
 
-    function handleAddProject(){
-        const newProject = prompt('Digite seu novo projeto:')
+   async function handleAddProject(){
+       const response = await api.post('projects',{
+            title: `Aplicativo React ${Date.now()}`,
+            owner: "Daniel Azevêdo"
+        } )
 
-        setProjects([...projects, `${newProject}`])
+        const project = response.data
 
-        console.log(projects)
+        setProjects([...projects, project])
     }
 
 
@@ -33,7 +36,7 @@ function App(){
         
 
         <ul>
-            {projects.map(project => <li key={project}>{project}</li>)}
+            {projects.map(project => <li key={project.id}>{project.title}</li>)}
         </ul>
 
         <button type="button" onClick={handleAddProject}>Adicionar Projeto</button>
