@@ -90,6 +90,6 @@ app.delete('/projects/:id', validateProjectId, (req, res) =>{
 
 })
 
-app.listen(3000, function(){
+app.listen(3333, function(){
     console.log("Servidor iniciado")
 })

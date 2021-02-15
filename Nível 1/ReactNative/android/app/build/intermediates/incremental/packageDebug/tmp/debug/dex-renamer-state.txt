@@ -1,0 +1,4 @@
+#Tue Jan 19 20:45:59 BRT 2021
+base.0=/home/daniel/Downloads/GoStack-Bootcamp/Nível 1/ReactNative/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
